@@ -3,10 +3,12 @@ class PostsController < ApplicationController
     @posts = Post.all  # すべてのレコードを@postsに代入
   end
 
-  def new
-  end
+  # 削除
+  # def new
+  # end
 
   def create
-    Post.create(content: params[:content])
+    @posts = Post.all.order(id: "DESC")
+    redirect_to action: :index
   end  
 end
